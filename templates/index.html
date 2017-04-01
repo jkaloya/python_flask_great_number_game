@@ -1,0 +1,35 @@
+<DOCTYPE! html>
+<html>
+    <head>
+       <title>Great Number Game</title>
+    </head>
+    <body>
+        <h2>Welcome to the Great Number Game!</h2>
+        <h5>I am thinking of a number between 1 and 100</h5>
+        <h5>Take a guess!</h5>
+        <form action='/check' method='post'>
+        <input type='text' name='number'>
+        <input type='submit' value='Submit'>
+        </form>
+
+
+        {% if session['Results']=="Too high!" %}
+        <div
+         class="style">{{session['Results']}}
+        </div>
+        {% endif %}
+
+        {% if session['Results']=="Too Low!" %}
+        <div class="style">{{session['Results']}}</div>
+        {% endif %}
+
+        {% if session['Results']=="Correct!" %}
+        <div class="style">{{session['Results']}}
+            <form action='/reset' method='post'>
+            <input type='submit' value='Play Again!'>
+            </form>
+        </div>
+        {% endif %}
+
+    </body>
+</html>
